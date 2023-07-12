@@ -22,13 +22,13 @@ import {
   Btn,
 } from './ContactForm.styled';
 
-// const schema = Yup.object().shape({
-//     name: Yup
+// const schema = yup.object().shape({
+//     name: yup
 //         .string()
 //         .min(2)
 //         .max(70)
 //         .required(),
-//     number: Yup
+//     number: yup
 //         .number()
 //         .min(4)
 //         .required(),
@@ -43,9 +43,7 @@ const schema = yup.object().shape({
       'Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d`Artagnan'
     )
     .required(),
-  number: yup
-    .string()
-    // .number()
+  number: yup.string()
     .phone(
       'UA',
       true,
