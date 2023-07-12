@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
+import * as yup from 'yup';
 import 'yup-phone';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -34,15 +34,18 @@ import {
 //         .required(),
 // });
 
-const schema = Yup.object().shape({
-  name: Yup.string()
+const schema = yup.object().shape({
+  name: yup
+    .string()
     .trim()
     .matches(
       /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
       'Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d`Artagnan'
     )
     .required(),
-  number: Yup.string()
+  number: yup
+    .string()
+    // .number()
     .phone(
       'UA',
       true,
